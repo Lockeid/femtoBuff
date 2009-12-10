@@ -1,0 +1,12 @@
+﻿## Interface: 30300
+## Title: femtoBuff
+## Notes: A simple buff mover and skinner
+## Author: Soeters
+## X-Category: Interface Enhancements
+## Version: r6
+## OptionalDeps: ButtonFacade, rActionButtonStyler
+## SavedVariables: femtoBuff_Options
+
+core.lua
+rABS.lua
+lbf.lua
