@@ -3,7 +3,7 @@
 ## Notes: A simple buff mover and skinner
 ## Author: Soeters
 ## X-Category: Interface Enhancements
-## Version: r6
+## Version: r7
 ## OptionalDeps: ButtonFacade, rActionButtonStyler
 ## SavedVariables: femtoBuff_Options
 

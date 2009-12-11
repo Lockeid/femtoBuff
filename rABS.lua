@@ -70,7 +70,7 @@ local tex = "Interface\\AddOns\\rActionButtonStyler\\media\\gloss"
 		while _G["DebuffButton"..i] do		
 			local button = format("DebuffButton%d", i)
 			-- Little hack for placement
-			if i == 1 and _G[button] then _G[button]:ClearAllPoints(); _G[button]:SetPoint(unpack(femtoBuff_Options.Debuff)); _G[button].SetPoint = function() end end
+			if i == 1 and _G[button] then _G[button]:ClearAllPoints(); _G[button]:SetPoint(unpack(femtoBuff_Options.Debuff)); end
 			local name, rank, texture, count, kind, duration, expirationTime, _, _, shouldConsolidate = UnitAura("player", i);
 			kind = kind or "None"
 			f:Style(button)
@@ -81,49 +81,6 @@ local tex = "Interface\\AddOns\\rActionButtonStyler\\media\\gloss"
 
 					
 	end
-	--[[		
-	-- Copy/Paste from Blizzard code, juste changed to skin the buttons
-	function BuffFrame_Update()
-		
-		-- Handle Buffs
-		BUFF_ACTUAL_DISPLAY = 0;
-		for i=1, BUFF_MAX_DISPLAY do
-			local button = format("BuffButton%d", i)
-			if _G[button] then
-				f:Style(button)
-			end
-			if ( AuraButton_Update("BuffButton", i, "HELPFUL") ) then
-				BUFF_ACTUAL_DISPLAY = BUFF_ACTUAL_DISPLAY + 1;
-			end
-		end
-		
-		--Handle temporary enchants
-		for i=1, 2 do
-			local button = format("TempEnchant%d", i)
-			if _G[button] then
-				f:Style(button)
-				f:ColorBorder(button, "Enchant")
-			end
-		end
-	
-		-- Handle debuffs
-		DEBUFF_ACTUAL_DISPLAY = 0;
-		for i=1, DEBUFF_MAX_DISPLAY do
-			local button = format("DebuffButton%d", i)
-			-- Little hack for placement
-			if i == 1 and _G[button] then _G[button]:ClearAllPoints(); _G[button]:SetPoint(unpack(femtoBuff_Options.Debuff)); _G[button].SetPoint = function() end end
-			if _G[button] then
-				f:Style(button)
-				local _, _, _, _, kind = UnitDebuff("player", i)
-				kind = kind or "None"
-				f:ColorBorder(button, kind)
-			end
-			if ( AuraButton_Update("DebuffButton", i, "HARMFUL") ) then
-				DEBUFF_ACTUAL_DISPLAY = DEBUFF_ACTUAL_DISPLAY + 1;
-			end
-		end
-	end --]]
-	
 	
 	f:SetScript("OnEvent", function(self, event, ...)
 		local unit = ...
